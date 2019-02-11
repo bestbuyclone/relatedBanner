@@ -1,0 +1,19 @@
+{
+  "name": "relatedbanner",
+  "version": "1.0.0",
+  "description": "the related items banner microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bestbuyclone/relatedBanner.git"
+  },
+  "author": "James Dempsey",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/bestbuyclone/relatedBanner/issues"
+  },
+  "homepage": "https://github.com/bestbuyclone/relatedBanner#readme"
+}
