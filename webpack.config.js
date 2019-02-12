@@ -20,7 +20,7 @@ module.exports = {
   },
 
   entry: {
-    index: "./src/index.js"
+    index: "./client/index.js"
   },
 
   output: {
@@ -75,8 +75,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "React scratch",
-      template: __dirname + "/public/index.html",
+      title: "Related Items Banner",
+      template: __dirname + "/client/index.html",
       inject: "body",
       filename: "index.html"
     }),
