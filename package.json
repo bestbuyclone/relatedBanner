@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "webpack --watch",
     "start": "webpack-dev-server  --open --color ",
-    "build": "rimraf dist &&  webpack --progress --profile"
+    "build": "rimraf dist &&  webpack --progress --profile",
+    "server": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/bestbuyclone/relatedBanner#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -66,8 +68,8 @@
     "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "webpack": "^4.7.0",
-    "webpack-cli": "^2.1.2",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.4"
   }
 }
