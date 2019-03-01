@@ -9,10 +9,10 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 9001,
-    historyApiFallback: true
+    historyApiFallback: true //navigation
   },
 
-  devtool: "cheap-eval-source-map",
+  devtool: "cheap-eval-source-map", //fast build, super fast rebuilds
   performance: {
     maxEntrypointSize: 10000,
     maxAssetSize: 10000,
@@ -20,11 +20,11 @@ module.exports = {
   },
 
   entry: {
-    index: "./client/index.js"
+    index: "./client/index.js" //entry point
   },
 
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist"), //output
     filename: "bundle.js",
     chunkFilename: "[id][hash].js",
     publicPath: "/"
@@ -76,15 +76,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Related Items Banner",
-      template: __dirname + "/client/index.html",
+      template: __dirname + "/client/index.html", //create index.html with js script
       inject: "body",
       filename: "index.html"
     }),
     new MiniCssExtractPlugin({
+      //minify that css
       filename: "[name]-[hash].css",
       chunkFilename: "[id][hash].css"
     }),
-    new UglifyJsPlugin({ sourceMap: true })
+    new UglifyJsPlugin({ sourceMap: true }) //smash everything
   ],
   mode: "production"
 };
