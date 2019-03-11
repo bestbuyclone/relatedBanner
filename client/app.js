@@ -1,50 +1,72 @@
 import React from "react";
-
+const imgStyle = {
+  width: "40%",
+  height: "40%",
+  marginLeft: "5%",
+  float: "left"
+};
+const nameStyle = {
+  fontFamily: "Human BBY Web,Arial,Helvetica,sans-serif",
+  width: "50%",
+  height: "20%",
+  float: "right"
+};
+const priceStyle = {
+  fontFamily: "Human BBY Web,Arial,Helvetica,sans-serif",
+  width: "50%",
+  height: "20%",
+  float: "right",
+  fontWeight: "bolder"
+};
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [
-        { name: "Pokemon Go", pic: "srcasdfcode", price: 9.99 },
-        { name: "Fitbit Versa", pic: "srccasdfode", price: 19.99 },
-        { name: "Legoland 3", pic: "srccasdfode", price: 29.99 },
-        { name: "Playstation 4 Pro", pic: "srccasdfode", price: 19.99 },
-        { name: "4k UHD 27in Monitor", pic: "srccasdfode", price: 29.99 }
+        {
+          name: "Pokemon Go",
+          pic: "https://picsum.photos/200/?random",
+          price: 9.99
+        },
+        {
+          name: "Fitbit Versa",
+          pic: "https://picsum.photos/200/?random",
+          price: 19.99
+        },
+        {
+          name: "Legoland 3",
+          pic: "https://picsum.photos/200/?random",
+          price: 29.99
+        },
+        {
+          name: "Playstation 4 Pro",
+          pic: "https://picsum.photos/200/?random",
+          price: 19.99
+        },
+        {
+          name: "4k UHD 27in Monitor",
+          pic: "https://picsum.photos/200/?random",
+          price: 29.99
+        }
       ]
     };
   }
   render() {
     return (
-      <div style={{ width: "100%", border: "3px solid black" }}>
-        <h2>Related Items</h2>
+      <div style={{ width: "100%" }}>
+        <h2 style={{ fontFamily: "Human BBY Web,Arial,Helvetica,sans-serif" }}>
+          Related Items
+        </h2>
         {this.state.items.map(item => (
           <div
             style={{ display: "inline-block", width: "20%", height: "100%" }}
           >
-            <h3
-              style={{
-                width: "50%",
-                height: "20%",
-                float: "right"
-              }}
-            >
+            <img src={item.pic} style={imgStyle} />
+            <a href="url" style={nameStyle}>
               {item.name}
-            </h3>
-            <img
-              src="https://picsum.photos/200/?random"
-              style={{ width: "40%", height: "40%", margin: "0 0 0 5%" }}
-            />
-            <h3
-              style={{
-                width: "50%",
-                height: "20%",
-                float: "right",
-                marginTop: "-10%",
-                position: "relative"
-              }}
-            >
-              {item.price}
-            </h3>
+            </a>
+
+            <p style={priceStyle}>${item.price}</p>
           </div>
         ))}
       </div>
