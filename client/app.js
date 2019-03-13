@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 const imgStyle = {
   width: "40%",
   height: "40%",
@@ -25,31 +26,42 @@ class App extends React.Component {
       items: [
         {
           name: "Pokemon Go",
-          pic: "https://picsum.photos/200/?random",
+          src: "https://picsum.photos/200/?random",
           price: 9.99
         },
         {
           name: "Fitbit Versa",
-          pic: "https://picsum.photos/200/?random",
+          src: "https://picsum.photos/200/?random",
           price: 19.99
         },
         {
           name: "Legoland 3",
-          pic: "https://picsum.photos/200/?random",
+          src: "https://picsum.photos/200/?random",
           price: 29.99
         },
         {
           name: "Playstation 4 Pro",
-          pic: "https://picsum.photos/200/?random",
+          src: "https://picsum.photos/200/?random",
           price: 19.99
         },
         {
           name: "4k UHD 27in Monitor",
-          pic: "https://picsum.photos/200/?random",
+          src: "https://picsum.photos/200/?random",
           price: 29.99
         }
       ]
     };
+  }
+  componentDidMount() {
+    console.log("here");
+    axios.get("/initial").then(data => {
+      console.log(data.data, "data in client after request returns");
+      let init = data.data;
+
+      this.setState({
+        items: init
+      });
+    });
   }
   render() {
     return (
@@ -61,7 +73,7 @@ class App extends React.Component {
           <div
             style={{ display: "inline-block", width: "20%", height: "100%" }}
           >
-            <img src={item.pic} style={imgStyle} />
+            <img src={item.src} style={imgStyle} />
             <a href="url" style={nameStyle}>
               {item.name}
             </a>

@@ -13,9 +13,48 @@ db.once("open", function() {
 });
 
 const relatedSchema = mongoose.Schema({
+  id: Number,
   name: String,
   src: String,
   price: Number
 });
 
-const related = mongoose.model("related", relatedSchema);
+const Product = mongoose.model("Product", relatedSchema);
+
+const save = (info, cb) => {
+  console.log("hit save func");
+  let related = new Product({
+    id: info.id,
+    name: info.name,
+    src: info.pic,
+    price: info.price
+  });
+  related
+    .save()
+    .then(data => {
+      cb(null, data);
+    })
+    .catch(err => {
+      cb(err);
+    });
+};
+const retrieve = id => {
+  console.log("you've hit the retrieve handler");
+  let final = Product.findOne({ id: id }, (err, res) => {
+    if (err) {
+      console.log("error in retrieve");
+    } else {
+      //console.log(res);
+      return res;
+    }
+  });
+  return final;
+  // Product.findOne({ id: id })
+  //   .then(data => cb(null, data))
+  //   .catch(err => cb(err));
+};
+
+module.exports = {
+  save,
+  retrieve
+};
