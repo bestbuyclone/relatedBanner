@@ -53,9 +53,7 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    console.log("here");
     axios.get("/initial").then(data => {
-      console.log(data.data, "data in client after request returns");
       let init = data.data;
 
       this.setState({
